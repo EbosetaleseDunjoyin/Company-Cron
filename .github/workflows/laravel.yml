@@ -23,8 +23,8 @@ jobs:
     - name: Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.2
       with:
-        server: ftp.myautomation1.website
-        username: ${{ secrets.TEST_USERNAME }}  # Use GitHub secret for FTP username
+        server: ${{ secrets.TEST_SERVER }}
+        username: ${{ secrets.TEST_USERNAME }}  # Use GitHub secret for FTP username TEST_SERVER
         password: ${{ secrets.TEST_PASSWORD }}
         port: 21  # Replace with the correct port number (21 is standard for FTP)
         protocol: ftp
