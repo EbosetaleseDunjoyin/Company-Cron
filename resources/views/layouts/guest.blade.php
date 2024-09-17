@@ -25,6 +25,11 @@
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
                 {{ $slot }}
             </div>
+            <div class="my-5 text-center">
+                <a class="text-orange-500" href="https://justnovate.com/" target="_blank">
+                    Developed by JustNovate
+                </a>
+            </div>
         </div>
     </body>
 </html>

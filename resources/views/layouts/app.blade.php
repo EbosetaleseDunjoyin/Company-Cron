@@ -61,6 +61,12 @@
                 
                 {{ $slot }}
             </main>
+
+            <div class="my-5 text-center">
+                <a class="text-orange-500" href="https://justnovate.com/" target="_blank">
+                    Developed by JustNovate
+                </a>
+            </div>
         </div>
     </body>
 </html>

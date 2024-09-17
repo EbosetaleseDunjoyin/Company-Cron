@@ -17,13 +17,14 @@ class FetchAndNotifyCompanies extends Command
 {
     protected $signature = 'fetch:companies';
     protected $description = 'Fetch companies and send emails about active and recently created ones';
-    protected $username , $password;
+    protected $username , $password, $email;
 
     public function __construct(){
 
         parent::__construct();
         $this->username = env('COMPANY_API_KEY');
         $this->password = ''; 
+        $this->email = env('RECEIVER_EMAIL'); 
     }
     public function handle()
     {
@@ -93,7 +94,7 @@ class FetchAndNotifyCompanies extends Command
             
                 $filteredCompanies = array_filter($companies, function ($company) {
                     return $company['company_status'] === 'active' &&
-                        Carbon::parse($company['date_of_creation'])->gt(Carbon::now()->subDays(3)); // Adjust time range as needed
+                        Carbon::parse($company['date_of_creation'])->gt(Carbon::now()->subDays(2)); // Adjust time range as needed
                 });
 
                 
@@ -153,7 +154,7 @@ class FetchAndNotifyCompanies extends Command
         })->join(', ');
 
         // Send email (adjust recipient and email logic)
-        Mail::to('recipient@example.com')->send(new NewCompanyMail($company, $directors));
+        Mail::to($this->email)->send(new NewCompanyMail($company, $directors));
 
         $this->info("Email sent for company: {$company['title']} with " . count($directors) . " directors: {$directorsList}");
     }
