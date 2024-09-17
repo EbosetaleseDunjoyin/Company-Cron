@@ -13,6 +13,8 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+         <link rel="stylesheet" href="{{ asset('build/assets/app-iLRVCxYy.css') }}" > 
+        <script type="module" src="{{ asset('build/assets/app-DLXkxiZ3.js') }}"></script> 
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
